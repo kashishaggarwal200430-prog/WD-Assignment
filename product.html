@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iPad – Home</title>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-y: auto;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #222;
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #00bfff;
+        }
+
+        /* BANNER IMAGE */
+        .banner {
+            background-image: url("ipad.jpeg");
+            height: 65vh;
+            background-size: cover;
+            background-position: center;
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 60px 40px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* FEATURES & PRICING */
+        .features, .pricing {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .feature-box, .price-card {
+            width: 280px;
+            background: #f3f3f3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .price-card {
+            background: white;
+        }
+
+        .price-card button {
+            background: #00bfff;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .price-card button:hover {
+            background: #009acd;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <h1 style="margin:0;">iPad</h1>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+        </ul>
+    </nav>
+
+    <!-- HOME SECTION -->
+    <section id="home" style="padding:0;">
+        <div style="
+            text-align:center;
+            font-size:40px;
+            font-weight:bold;
+            padding:25px 0;
+        ">
+            The New iPad
+        </div>
+        <div class="banner"></div>
+    </section>
+
+    <!-- FEATURES SECTION -->
+    <section id="features">
+        <h2>iPad Features</h2>
+        <div class="features">
+            <div class="feature-box">
+                <h3>Liquid Retina Display</h3>
+                <p>Vibrant colors and sharp detail.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Apple Pencil Support</h3>
+                <p>Perfect for notes, drawing, and design.</p>
+            </div>
+            <div class="feature-box">
+                <h3>Powerful Performance</h3>
+                <p>Fast and smooth for work and play.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section id="pricing">
+        <h2>iPad Pricing</h2>
+        <div class="pricing">
+            <div class="price-card">
+                <h3>iPad</h3>
+                <p>₹44,900</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="price-card">
+                <h3>iPad Air</h3>
+                <p>₹59,900</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="price-card">
+                <h3>iPad Pro</h3>
+                <p>₹89,900</p>
+                <button>Buy Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        © 2025 Apple Inc. All rights reserved.
+    </footer>
+
+</body>
+</html>
