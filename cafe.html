@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Brewing Cauldron - A Magical Café Experience</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Georgia", "Garamond", serif;
+        line-height: 1.7;
+        color: #2c2416;
+        background: #f5f1e8;
+      }
+
+      /* Header Styles */
+      header {
+        background: linear-gradient(
+          135deg,
+          #1a1a1a 0%,
+          #3d2817 50%,
+          #1a1a1a 100%
+        );
+        color: #d4af37;
+        padding: 1.2rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        border-bottom: 2px solid #d4af37;
+      }
+
+      /* Navbar Styles */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .logo {
+        font-size: 1.6rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-family: "Georgia", serif;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .nav-links {
+        display: flex;
+        list-style: none;
+        gap: 2.5rem;
+      }
+
+      .nav-links a {
+        color: #d4af37;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 1px;
+      }
+
+      /* Main Content */
+      main {
+        margin-top: 75px;
+      }
+
+      section {
+        min-height: 100vh;
+        padding: 5rem 2rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section h2 {
+        font-size: 2.8rem;
+        margin-bottom: 1.5rem;
+        letter-spacing: 3px;
+        font-weight: 600;
+      }
+
+      section p {
+        max-width: 750px;
+        text-align: center;
+        font-size: 1.15rem;
+        margin-bottom: 1.5rem;
+        color: #3d2817;
+      }
+
+      /* Home Section */
+      #home {
+        background: linear-gradient(
+            rgba(26, 26, 26, 0.6),
+            rgba(61, 40, 23, 0.6)
+          ),
+          url("https://images.unsplash.com/photo-1511920170033-f8396924c348?w=1200")
+            center/cover;
+        color: #f4e4c1;
+        text-align: center;
+      }
+
+      #home h2 {
+        font-size: 3.5rem;
+        color: #d4af37;
+        text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+        margin-bottom: 1rem;
+      }
+
+      #home p {
+        font-size: 1.4rem;
+        color: #f4e4c1;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+        font-style: italic;
+      }
+
+      .spell-divider {
+        width: 200px;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #d4af37, transparent);
+        margin: 2rem auto;
+      }
+
+      /* About Section */
+      #about {
+        background: #2c2416;
+        color: #f4e4c1;
+      }
+
+      #about h2 {
+        color: #d4af37;
+      }
+
+      .about-content {
+        display: flex;
+        gap: 3rem;
+        align-items: center;
+        max-width: 1100px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .about-image {
+        width: 420px;
+        height: 420px;
+        border-radius: 10px;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        border: 3px solid #d4af37;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-text p {
+        color: #f4e4c1;
+        text-align: left;
+      }
+
+      /* Menu Section */
+      #menu {
+        background: linear-gradient(180deg, #f5f1e8 0%, #e8dcc4 100%);
+      }
+
+      #menu h2 {
+        color: #3d2817;
+      }
+
+      .menu-category {
+        margin-bottom: 3rem;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .menu-category h3 {
+        font-size: 2rem;
+        color: #740001;
+        margin-bottom: 2rem;
+        text-align: center;
+        letter-spacing: 2px;
+      }
+
+      .menu-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2.5rem;
+      }
+
+      .menu-card {
+        background: white;
+        padding: 1.8rem;
+        border-radius: 8px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+        border: 1px solid #d4af37;
+      }
+
+      .menu-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 1rem;
+      }
+
+      .menu-card h4 {
+        color: #740001;
+        margin-bottom: 0.5rem;
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+      }
+
+      .menu-card p {
+        color: #5a4a3a;
+        font-size: 0.95rem;
+        text-align: left;
+        margin-bottom: 1rem;
+      }
+
+      .menu-card .price {
+        color: #3d2817;
+        font-size: 1.3rem;
+        font-weight: bold;
+        text-align: right;
+      }
+
+      /* Gallery Section */
+      #gallery {
+        background: #1a1a1a;
+        color: #f4e4c1;
+      }
+
+      #gallery h2 {
+        color: #d4af37;
+      }
+
+      #gallery p {
+        color: #f4e4c1;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: 2rem;
+        max-width: 1200px;
+        width: 100%;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        border: 2px solid #d4af37;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        filter: brightness(0.85);
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.85));
+        color: #d4af37;
+        padding: 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        letter-spacing: 1px;
+      }
+
+      /* Contact Section */
+      #contact {
+        background: linear-gradient(135deg, #3d2817 0%, #1a1a1a 100%);
+        color: #f4e4c1;
+      }
+
+      #contact h2 {
+        color: #d4af37;
+      }
+
+      #contact > p {
+        color: #f4e4c1;
+      }
+
+      .contact-container {
+        max-width: 950px;
+        width: 100%;
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .contact-form {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-form h3 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #d4af37;
+        letter-spacing: 2px;
+      }
+
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 1rem;
+        margin-bottom: 1.2rem;
+        border: 2px solid #d4af37;
+        border-radius: 5px;
+        font-family: "Georgia", serif;
+        font-size: 1rem;
+        background: #f5f1e8;
+        color: #2c2416;
+      }
+
+      .contact-form input:focus,
+      .contact-form textarea:focus {
+        outline: none;
+        border-color: #740001;
+        box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+      }
+
+      .contact-form button {
+        background: #740001;
+        color: #d4af37;
+        padding: 1rem 2.5rem;
+        border: 2px solid #d4af37;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1.1rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        font-family: "Georgia", serif;
+      }
+
+      .contact-info {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-info h3 {
+        margin-bottom: 1.5rem;
+        font-size: 1.8rem;
+        color: #d4af37;
+        letter-spacing: 2px;
+      }
+
+      .contact-info p {
+        margin-bottom: 1.2rem;
+        font-size: 1.05rem;
+        color: #f4e4c1;
+        text-align: left;
+      }
+
+      .contact-info strong {
+        color: #d4af37;
+      }
+
+      /* Footer Styles */
+      footer {
+        background: #0d0d0d;
+        color: #d4af37;
+        text-align: center;
+        padding: 3rem 2rem;
+        border-top: 2px solid #d4af37;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .footer-tagline {
+        font-size: 1.2rem;
+        font-style: italic;
+        margin-bottom: 1rem;
+        color: #f4e4c1;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        margin-top: 1.5rem;
+        font-size: 1.05rem;
+      }
+
+      .social-links a {
+        color: #d4af37;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      /* Smooth Scroll */
+      html {
+        scroll-behavior: smooth;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .nav-links {
+          gap: 1rem;
+          font-size: 0.9rem;
+        }
+
+        #home h2 {
+          font-size: 2.5rem;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+
+        .about-image {
+          width: 100%;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <div class="logo">THE BREWING CAULDRON</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home">
+        <h2>The Brewing Cauldron</h2>
+        <div class="spell-divider"></div>
+        <p>Where Magic Meets Coffee</p>
+        <p style="font-size: 1.1rem; margin-top: 1rem">
+          A Café for Wizards, Witches, and Muggles Alike
+        </p>
+      </section>
+
+      <section id="about">
+        <h2>Our Enchanted Story</h2>
+        <div class="spell-divider"></div>
+        <div class="about-content">
+          <img
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600"
+            alt="Vintage Café Interior"
+            class="about-image"
+          />
+          <div class="about-text">
+            <p>
+              Nestled in a charming corner reminiscent of Diagon Alley, The
+              Brewing Cauldron has been serving enchanting beverages and
+              delectable treats since 1998.
+            </p>
+            <p>
+              Our café combines the warmth of Hogwarts' Great Hall with the cozy
+              intimacy of the Gryffindor common room. Every corner tells a
+              story, every drink is crafted with care, and every guest is
+              treated like family.
+            </p>
+            <p>
+              Whether you're a dedicated Potterhead or simply seeking a magical
+              atmosphere with exceptional coffee, our doors are open to all who
+              appreciate the finer things in life—both magical and mundane.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="menu">
+        <h2>Our Magical Menu</h2>
+        <div class="spell-divider"></div>
+
+        <div class="menu-category">
+          <h3>Enchanted Beverages</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1517487881594-2787fef5ebf7?w=400"
+                alt="Butterbeer Latte"
+              />
+              <h4>Butterbeer Latte</h4>
+              <p>
+                Creamy butterscotch espresso topped with whipped cream and a
+                hint of magic
+              </p>
+              <div class="price">Rs. 219.99</div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400"
+                alt="Polyjuice Potion"
+              />
+              <h4>Polyjuice Potion</h4>
+              <p>Mysterious green tea blend with honey and exotic spices</p>
+              <div class="price">Rs. 169.99</div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=400"
+                alt="Felix Felicis"
+              />
+              <h4>Felix Felicis</h4>
+              <p>
+                Golden caramel macchiato that brings good fortune with every sip
+              </p>
+              <div class="price">Rs. 179.99</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="menu-category">
+          <h3>Wizard's Delicacies</h3>
+          <div class="menu-grid">
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1586985289688-ca3cf47d3e6e?w=400"
+                alt="Pumpkin Pasty"
+              />
+              <h4>Pumpkin Pastries</h4>
+              <p>
+                Traditional pastries filled with spiced pumpkin and autumn
+                warmth
+              </p>
+              <div class="price">Rs. 90.00 each</div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400"
+                alt="Chocolate Frogs"
+              />
+              <h4>Chocolate Cauldron Cake</h4>
+              <p>
+                Rich chocolate sponge with molten center and collectible card
+              </p>
+              <div class="price">Rs. 750.00</div>
+            </div>
+            <div class="menu-card">
+              <img
+                src="https://images.unsplash.com/photo-1590080875515-8a3a8dc5735e?w=400"
+                alt="Treacle Tart"
+              />
+              <h4>Treacle Tart</h4>
+              <p>Harry's favorite—golden syrup tart with shortcrust pastry</p>
+              <div class="price">Rs.340.00</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="gallery">
+        <h2>Glimpses of Magic</h2>
+        <div class="spell-divider"></div>
+        <p>Step inside our enchanted realm</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?w=600"
+              alt="Magical Latte Art"
+            />
+            <div class="gallery-caption">Spellbinding Latte Art</div>
+          </div>
+          <div class="gallery-item">
+            <img src="cafe1.jpeg" alt="Cozy Atmosphere" />
+            <div class="gallery-caption">Cozy Common Room</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1559305616-3f99cd43e353?w=600"
+              alt="Pastries"
+            />
+            <div class="gallery-caption">Freshly Baked Magic</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=600"
+              alt="Coffee Brewing"
+            />
+            <div class="gallery-caption">Brewing Perfection</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600"
+              alt="Vintage Books"
+            />
+            <div class="gallery-caption">Reading Corner</div>
+          </div>
+          <div class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600"
+              alt="Evening Ambiance"
+            />
+            <div class="gallery-caption">Evening Enchantment</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Visit Our Realm</h2>
+        <div class="spell-divider"></div>
+        <p>Send us an owl... or use the form below</p>
+        <div class="contact-container">
+          <div class="contact-form">
+            <h3>Send a Message</h3>
+            <input type="text" placeholder="Your Name" required />
+            <input type="email" placeholder="Your Owl Post Address" required />
+            <textarea rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit">Cast Message</button>
+          </div>
+          <div class="contact-info">
+            <h3>Find Us</h3>
+            <p>
+              <strong>Location:</strong><br />Platform 9¾ Street<br />Magical
+              Quarter, London
+            </p>
+            <p><strong>Owl Post:</strong><br />thebrewingcauldron@magic.com</p>
+            <p>
+              <strong>Hours:</strong><br />Monday - Friday: 7:00 AM - 9:00 PM<br />Saturday
+              - Sunday: 8:00 AM - 10:00 PM
+            </p>
+            <p>
+              <strong>Special Events:</strong><br />Trivia Night every Thursday
+              at 7 PM
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <h3>The Brewing Cauldron</h3>
+        <p class="footer-tagline">
+          "It does not do to dwell on dreams and forget to live... but excellent
+          coffee helps."
+        </p>
+        <p>&copy; 2025 The Brewing Cauldron. All Rights Reserved.</p>
+        <div class="social-links">
+          <a href="#">Facebook</a>
+          <a href="#">Instagram</a>
+          <a href="#">Twitter</a>
+          <a href="#">Pinterest</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
